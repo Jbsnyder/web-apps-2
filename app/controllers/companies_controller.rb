@@ -8,5 +8,15 @@ class CompaniesController < ApplicationController
     # .find(123) is the same as .where({ id: 123 })[0]
     @company = Company.find(params["id"])
   end
+def new
+  @company = Company.new
+end
+
+def create
+@company = Company.new(params["company"])
+@company.save
+redirect_to "/companies"
+# in the past we passed a hash of info to create a new company
+end
 
 end
